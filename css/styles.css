@@ -1,6 +1,3 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
 /* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
@@ -31,8 +28,11 @@ nav {
     border-radius: 12px;
     box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    max-height: 100vh;  /* Prevent overflow */
+    overflow-y: auto;   /* Make the sidebar scrollable */
 }
 
+/* Sidebar Title */
 nav h3 {
     font-size: 22px;
     font-weight: 600;
@@ -47,6 +47,7 @@ nav h3 {
 #navbar {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 #navbar li {
@@ -116,6 +117,8 @@ nav h3 {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px;
     margin-top: 20px;
+    overflow-y: auto; /* Make the gallery scrollable */
+    max-height: 600px; /* Ensure it doesn't overflow the viewport */
 }
 
 /* Project Card */
@@ -174,6 +177,7 @@ nav h3 {
         text-align: center;
         padding: 15px;
         border-radius: 8px;
+        max-height: 100%; /* Ensure the sidebar is fully visible on small screens */
     }
 
     #navbar li {
@@ -187,6 +191,8 @@ nav h3 {
 
     .project-gallery {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        max-height: none;  /* Allow more space for gallery on mobile */
+        overflow-y: auto;  /* Enable scrolling for the project gallery */
     }
 }
 
