@@ -1,0 +1,50 @@
+.banner {
+    height: 100px;
+    background-color: rgb(176, 167, 167);
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.main-section {
+    font-size: 25px;
+    background-color: rgb(30, 100, 100);
+    border-radius: 30px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+.footer {
+    height: 100px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.panel-header {
+    color: white;
+    margin: 25px;
+    background-color: rgb(107, 96, 96);
+    border-radius: 15px;
+    text-align: center;
+    padding: 10px;
+}
+
+.panel-subtext {
+    height: 250px;
+    margin: 25px;
+    background-color: rgb(70, 70, 70);
+    border-radius: 15px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+.placeholder-box {
+    height: 100px;
+    text-align: center;
+    margin-top: 25px;
+}
