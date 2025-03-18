@@ -1,5 +1,5 @@
-const owner = 'peethani93';  
-const repo = 'DynamicProjectGallery';  
+const owner = 'peethani93';
+const repo = 'DynamicProjectGallery';
 const folder = 'projects';
 
 async function loadProjectTitles() {
@@ -20,7 +20,7 @@ async function loadProjectTitles() {
             const listItem = document.createElement('li');
             const link = document.createElement('a');
             link.textContent = `Task ${taskNumber}`;
-            link.href = "#";  // Prevent full page reload
+            link.href = "#";
             link.addEventListener('click', (event) => {
                 event.preventDefault();
                 loadProjectContent(file.name, listItem);
@@ -38,7 +38,7 @@ async function loadProjectTitles() {
 
 async function loadProjectContent(project, selectedItem) {
     const contentDiv = document.getElementById('content');
-    contentDiv.style.opacity = '0'; 
+    contentDiv.style.opacity = '0';
 
     try {
         const url = `https://raw.githubusercontent.com/${owner}/${repo}/main/${folder}/${project}`;
@@ -47,16 +47,22 @@ async function loadProjectContent(project, selectedItem) {
 
         const data = await response.text();
 
+        
         const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = data;
 
+        
         contentDiv.innerHTML = tempDiv.innerHTML;
 
+        
         setTimeout(() => {
             contentDiv.style.opacity = '1';
-    
+        }, 200);
+
+        
         executeScripts(tempDiv);
 
-     
+       
         document.querySelectorAll('#navbar li').forEach(li => li.classList.remove('active'));
         selectedItem.classList.add('active');
 
@@ -71,8 +77,8 @@ function executeScripts(container) {
     scripts.forEach((script) => {
         const newScript = document.createElement('script');
         if (script.src) {
-            newScript.src = script.src;  
-            newScript.async = true;
+            newScript.src = script.src; 
+            newScript.async = true; 
         } else {
             newScript.textContent = script.textContent;  
         }
@@ -81,4 +87,5 @@ function executeScripts(container) {
     });
 }
 
+// Initialize the page by loading project titles
 loadProjectTitles();
