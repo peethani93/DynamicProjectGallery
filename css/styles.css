@@ -1,0 +1,206 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    transition: background 0.3s ease;
+}
+
+/* Main Layout */
+#container {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+/* Sidebar (Navigation) */
+nav {
+    width: 280px;
+    background: linear-gradient(135deg, #2C3E50, #1B2838);
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+nav h3 {
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+/* Navigation List */
+#navbar {
+    list-style: none;
+    padding: 0;
+}
+
+#navbar li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#navbar li:hover,
+#navbar li.active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+/* Adding icons */
+#navbar li::before {
+    content: "📂";  /* Default icon */
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+#navbar li.active::before {
+    content: "✔️";
+    transform: scale(1.2);
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 17px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Content Area */
+#content {
+    flex-grow: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    height: calc(100vh - 40px);
+    box-sizing: border-box;
+    font-size: 18px;
+    line-height: 1.8;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Default message */
+.default-message {
+    font-size: 20px;
+    color: #777;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Project Gallery */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Project Card */
+.project-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image inside project cards */
+.project-card img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Project Title */
+.project-card h3 {
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #2C3E50;
+}
+
+/* Project Description */
+.project-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    #navbar li {
+        justify-content: center;
+    }
+
+    #content {
+        margin-top: 10px;
+        height: auto;
+    }
+
+    .project-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+/* Scrollbar Styling */
+#content::-webkit-scrollbar {
+    width: 8px;
+}
+
+#content::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 4px;
+}
+
+/* Smooth transition for scrolling */
+html {
+    scroll-behavior: smooth;
+}
