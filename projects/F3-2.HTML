@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <body>
+            <input placeholder = "Enter A" id = "input_a"/>
+            <input placeholder = "Enter B" id = "input_b"/>
+            <button onclick = "generate_random_value()"> Generate Random Value</button>
+            <div id ="output_div"></div>
+            <script>
+            // let x = Math.random();
+            // console.log(x);
+            // let y = Math.floor(10 * Math.random());
+            // console.log(y);
+            function generate_random_value(){
+                let a = parsent(document.getElementById("input_a").value);
+                let b = parsent(document.getElementById("input_b").value);
+                let random_value = math.floor((b - a) * Math.random(b-a));
+
+                document.getElementById("output_div").innerHTML = random_value;
+            }
+            </script>
+        </body>
+    </head>
+</html>

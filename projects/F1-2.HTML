@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                font-family: 'Times New Roman', Georgia;
+                padding: 20px;
+            }
+
+            h2 {
+                color: black;
+            }
+
+            table {
+                width: 100%;
+                margin-top: 20px;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                padding: 10px;
+                text-align: left;
+            }
+
+            th {
+                background-color: blueviolet;
+                color: rgb(12, 10, 10);
+            }
+
+            tr:hover {
+                background-color: white;
+            }
+
+            input, button {
+                padding: 10px;
+                margin: 10px;
+                border-radius: 5px;
+                border: 1px solid whitesmoke;
+                width: 200px;
+            }
+
+            button {
+                background-color: blueviolet;
+                color: rgb(17, 1, 1);
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: blueviolet;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .input-table, .action-buttons {
+                margin-bottom: 20px;
+            }
+
+            #output_table {
+                margin-top: 20px;
+            }
+
+            tr, td {
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="student_info">
+            <h2>Manage Custom Object</h2>
+            <div class="input-table">
+                <table>
+                    <tr>
+                        <td><input id="student_name" placeholder="Enter the student_name"></td>
+                        <td><input id="major" placeholder="Enter the major"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="year" placeholder="Enter the year"></td>
+                        <td><input id="campus" placeholder="Enter the campus"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="action-buttons">
+                <button onclick="insert_data()">Insert Data</button>
+                <button onclick="clear_input()">Clear Input</button>
+                <button onclick="show_data()">Show All Data</button>
+                <button onclick="clear_output()">Clear Output</button>
+            </div>
+
+            <table id="output_table">
+                <thead>
+                    <tr>
+                        <th>student_name</th>
+                        <th>major</th>
+                        <th>year</th>
+                        <th>campus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            const customObjects = [];
+
+            function insert_data() {
+                const student_name = document.getElementById("studentt name").value;
+                const major = document.getElementById("major").value;
+                const year = document.getElementById("year").value;
+                const campus = document.getElementById("campus").value;
+
+                const newObject = {
+                    student_name: student_name,
+                    major: major,
+                    year: year,
+                    campus: campus
+                };
+
+                customObjects.push(newObject);
+
+                clear_input();
+            }
+
+            function clear_input() {
+                document.getElementById("student_name").value = "";
+                document.getElementById("major").value = "";
+                document.getElementById("year").value = "";
+                document.getElementById("campus").value = "";
+            }
+
+            function show_data() {
+                const tableBody = document.getElementById("output_table").getElementsByTagName("tbody")[0];
+                tableBody.innerHTML = ""; 
+
+                customObjects.forEach(obj => {
+                    const row = tableBody.insertRow();
+                    const cell1 = row.insertCell(0);
+                    const cell2 = row.insertCell(1);
+                    const cell3 = row.insertCell(2);
+                    const cell4 = row.insertCell(3);
+
+                    cell1.textContent = obj.student_name;
+                    cell2.textContent = obj.major;
+                    cell3.textContent = obj.year;
+                    cell4.textContent = obj.campus;
+                });
+            }
+
+            function clear_output() {
+                const tableBody = document.getElementById("output_table").getElementsByTagName("tbody")[0];
+                tableBody.innerHTML = ""; 
+            }
+        </script>
+    </body>
+</html>

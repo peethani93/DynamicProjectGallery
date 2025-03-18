@@ -1,0 +1,45 @@
+!<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Infor</title>
+            
+        <body>
+            <div>
+                <input id="student_name" placeholder = "Enter student_name">
+                <input id = "major" placeholder = "Enter major">
+                <input id = "year" placeholder = "Enter year">
+                <input id = "university" placeholder = "Enter university">
+            </div>
+            <h2>insert Info</h2>
+            <button onclick="Create_Student()">click for Create info</button>
+            <h2>student details</h2>
+            <button onclick="show_student_info()">click for student Info</button>
+
+            <br><br>
+            <p id = "student_info"></p>
+            <script>
+                
+                const student =  {
+                    first_name: "Sirisha",
+                    last_name: "Peethani",
+                    age: "30",
+                    grade: "A",
+                    year: "2025",
+                    major: "Computer Science",
+                    university: "Auburn University at Montgomery",
+                    description: function() {
+                        return this.first_name + " " + this.last_name + " is  a " + this.age + " -year-old " + this.major + " student at " + this.university + ". ";
+                    }
+                };
+                function show_student_info(){
+                    document.getElementById("student_info").innerHTML = student.description();
+                }
+                function insert(){
+                    let insert_Info = document.getElementId("insert Info").value;
+                    student. insert_Info= insert_Info;
+                }
+
+            </script>
+        </body>
+    </head>
+</html>

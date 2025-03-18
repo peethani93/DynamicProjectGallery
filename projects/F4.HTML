@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+    <body>
+        <input id="user_input" placeholder="Enter size" onkeyup="generate_shape();"/>
+        <div id="content_div"></div>
+        <script>
+            let colors = ["red", "blue", "green", "orange"];
+            let idx = 0;
+            let size = colors.length;
+
+            function generate_shape(){
+                let n = parseInt(document.getElementById("user_input").value);
+                let text = "";
+                let i = 0; 
+
+                while(i <= n){
+                    let j = 0;
+                    while(j < i){
+                        text += "* "; 
+                        j++; 
+                    }
+                    text += "<br>"; 
+                    i++; 
+                }
+
+                document.getElementById("content_div").innerHTML = text;
+                document.getElementById("content_div").style = "color:" + colors[idx];
+                idx = (idx + 1) % size;
+            }
+        </script>
+
+    </body>
+</html>

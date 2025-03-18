@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Value</title>
+  <script>
+    let colors = ["red", "green", "blue", "gray", "ocean_blue"];
+    function generate_random_value() {
+      let a = parseInt(document.getElementById("input_a").value);
+      let b = parseInt(document.getElementById("input_b").value);
+
+    
+      let randomNumber = Math.floor((b-a) * Math.random() + a);
+      document.getElementById("result").innerHTML = "Random Number: " + randomNumber;
+
+      let size = colors.length;
+      let idx = Math.floor(Math.random() * size);
+      document.getElementById("result").style ="color:" + colors[idx];
+    }
+
+    (function(){
+        alert("Hello");
+     })();
+
+     function remove_everything() {
+            document.body.innerHTML = "vanished";
+        }
+
+        setInterval(remove_everything, 3000);
+
+  </script>
+</head>
+<body id = "content_div">
+
+  <h1>Generator Random Value</h1>
+  <input placeholder = "Enter A" id = "input_a"/>
+  <input placeholder = "Enter B" id = "input_b"/>
+  <button onclick = "generate_random_value();"> Generate Random Value</button>
+  <div id ="output_div"></div>
+  <p id="result"></p>
+</body>
+</html>

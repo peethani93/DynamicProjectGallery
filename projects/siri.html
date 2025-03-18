@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+    <head>
+    </head>
+    <script>
+
+   
+    function updateDisplay() {
+            var nameInput = document.getElementById("nameInput").value;
+            document.getElementById("displayInput").value = nameInput;
+        }
+
+    </script>
+
+   
+    <body>
+    <input id ="nameInput"placeholder ="Input Text" onkeyup ="updateDisplay()"/>
+    <input id ="displayInput" placeholdert="output text" onkeyup ="updateDisplay()"/>
+    </body>
+
+</head>
+</html>
+
+
